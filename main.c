@@ -87,7 +87,7 @@ task main()
         {}
         if (getButtonPress(buttonDown))
         {
-            whoseturn = 1;
+            whoseTurn = 1;
         }
     
     //Main game loop

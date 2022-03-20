@@ -33,7 +33,7 @@ void drive(int currentSquare, int futureSquare)
 }
 void drawFunction(int xORo)
 {
-
+    //1 for X, 0 for O
 }
 void rotateAngle(int angle, int motorPower)
 {
@@ -62,6 +62,8 @@ void easyMode(int gameBoard[3][3])
         {
             if (gameBoard[row][col] == -1)
             {
+                //Not entirely complete
+                drive(currentSquare, futureSquare);
                 drawFunction(randomChoice);
             }
         }
@@ -104,11 +106,30 @@ task main()
                 upCounter++;
             }
             //Pseudocode-ish. Will fix later
-            drive(currentSquare, upCounter);
+            drive(currentSquare, upCounter); //drive to desired square
+            
+            displayString(1, "Press UP for X, DOWN for O!";)
+            
+            //Choosing between X and O
+            while(!getButtonPress(buttonAny))
+            {}
+            if(getButtonPress(buttonUp))
+            {
+                drawFunction(1);
+                gameBoard[X][X] = 1; //NOT CORRECT SYNTAX WILL FIX
+            }
+            else
+            {
+                drawFunction(0);
+                gameboard[X][X] = 0; //FIX
+            }
+            whoseTurn *= -1;
         }
-
-
+    if (whoseTurn == 1)
+    {
+        easyMode(gameboard); //or HARD MODE
         whoseTurn *= -1;
     }
-
+    //Need to add condition for game end
+    }
 }

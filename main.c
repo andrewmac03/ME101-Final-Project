@@ -9,8 +9,69 @@
 
 void configureSensors()
 {
-
+   	SensorType[S1] = sensorEV3_Touch;
+	SensorType[S2] = sensorEV3_Ultrasonic;
+	SensorType[S3] = sensorEV3_Color;
+	SensorType[S4] = sensorEV3_Gyro;
+	wait1Msec(50);
+	Sensormode = modeEV3Gyro_Calibration;
+	wait1Msec(50);
+	Sensormode = modeEV3Gyro_RateAndAngle;
 }
+
+//1 for x win -1 for O win 0 for no win
+//assuming x is 1 o is -1 and 0 is unused this is different from current config but is easier for checking with this method because of sum
+int GameOver(int gameBoard[3][3])
+{
+	//check col victory
+	int sum = 0;
+	int count1 =0;
+	while(abs(sum) < 3 && count1 < 3)
+	{	
+		sum = 0;
+		for(int count2 = 0; count2 < 3; count2++)
+		{
+			sum += gameBoard[count1][count2];
+		}
+		count1++;
+	}
+	//check row victory
+	if(abs(sum) != 3)
+	{
+		while(abs(sum) < 3 && count1 < 3)
+		{	
+			sum = 0;
+			for(int count2 = 0; count2 < 3; count2++)
+			{
+				sum += gameBoard[count2][count1];
+			}
+		}
+		count1++;
+	}
+	//check for left diagoal victory
+	if(abs(sum) != 3)
+	{
+		sum = 0;
+		for(int count = 0; count < 3; count++)
+			sum += gameBoard[count][count];
+	}
+	//check for right diagoal victory
+	if(abs(sum) != 3)
+	{
+		sum = 0;
+		for(int count1 = 2; count1 >= 0; count1--)
+			for(int count2 = 0; count2 < 3; count2++)
+				sum += gameBoard[count1][count2];
+	}
+	//return values
+	if(sum == 3)
+		return 1;
+	else if(sum == -3)
+		return -1;
+	else
+		return 0;
+}
+
 void penDown()
 {
     nMotorEncoder[motorB] = 0;

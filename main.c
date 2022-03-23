@@ -149,8 +149,8 @@ int GameOver(int gameBoard[3][3])
 			{
 				sum += gameBoard[count2][count1];
 			}
+			count1++;
 		}
-		count1++;
 	}
 	//check for left diagoal victory
 	if(abs(sum) != 3)

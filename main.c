@@ -139,6 +139,7 @@ int GameOver(int gameBoard[3][3])
 		count1++;
 	}
 	//check row victory
+	int count1 = 0;
 	if(abs(sum) != 3)
 	{
 		while(abs(sum) < 3 && count1 < 3)
@@ -162,9 +163,9 @@ int GameOver(int gameBoard[3][3])
 	if(abs(sum) != 3)
 	{
 		sum = 0;
-		for(int count1 = 2; count1 >= 0; count1--)
+		for(int count3 = 2; count3 >= 0; count3--)
 			for(int count2 = 0; count2 < 3; count2++)
-				sum += gameBoard[count1][count2];
+				sum += gameBoard[count3][count2];
 	}
 	//return values
 	if(sum == 3)

@@ -139,7 +139,7 @@ int GameOver(int gameBoard[3][3])
 		count1++;
 	}
 	//check row victory
-	int count1 = 0;
+	count1 = 0;
 	if(abs(sum) != 3)
 	{
 		while(abs(sum) < 3 && count1 < 3)

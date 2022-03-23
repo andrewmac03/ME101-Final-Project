@@ -126,7 +126,7 @@ void PlayerMove(int gameBoard[3][3], int letter)
 
 int GameOver(int gameBoard[3][3])
 {
-	//check col victory
+	//check row victory
 	int sum = 0;
 	int count1 =0;
 	while(abs(sum) < 3 && count1 < 3)
@@ -138,7 +138,7 @@ int GameOver(int gameBoard[3][3])
 		}
 		count1++;
 	}
-	//check row victory
+	//check col victory
 	count1 = 0;
 	if(abs(sum) != 3)
 	{

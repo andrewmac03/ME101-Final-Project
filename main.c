@@ -164,8 +164,10 @@ int GameOver(int gameBoard[3][3])
 	{
 		sum = 0;
 		for(int count3 = 2; count3 >= 0; count3--)
-			for(int count2 = 0; count2 < 3; count2++)
-				sum += gameBoard[count3][count2];
+		{
+			int count2 = 2-count3;
+			sum += gameBoard[count3][count2];
+		}
 	}
 	//return values
 	if(sum == 3)
